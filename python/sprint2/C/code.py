@@ -1,19 +1,33 @@
 # ! change LOCAL to False before submitting !
 # set LOCAL to True for local testing
 
-LOCAL = True
+LOCAL = False
 
 if LOCAL:
     class Node:  
-        def __init__(self, value, next_item=None):  
-            self.value = value  
+        def __init__(self, value, next_item=None):
+            self.value = value
             self.next_item = next_item
 
 
 def solution(node, idx):
-    # Your code
-    # ヽ(´▽`)/
-    pass
+    i = 0
+    node_tmp = node
+    previous_node = node_tmp
+    while True:
+        if i >= idx:
+            if i == 0:
+                node = node_tmp.next_item
+            elif not node_tmp.next_item:
+                previous_node.next_item = None
+            else:
+                previous_node.next_item = node_tmp.next_item
+            break
+        i += 1
+        previous_node = node_tmp
+        node_tmp = node_tmp.next_item
+    return node
+
 
 def test():
     node3 = Node("node3", None)

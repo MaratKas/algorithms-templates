@@ -1,20 +1,20 @@
-from typing import List
+from typing import List, Tuple
 # ID 72945061
-Keyboard = List[int]
+
+Keyboard = List[str]
 
 
 def get_max_score(keyboard: Keyboard, fingers: int) -> int:
     """Проверка получения баллов."""
-    keys = []
     keys = set(keyboard)
     score = 0
     for key in keys:
-        if fingers * 2 >= keyboard.count(key, 0, len(keyboard)) and key != ".":
+        if fingers * 2 >= keyboard.count(key) and key != ".":
             score += 1
     return score
 
 
-def read_input() -> Keyboard:
+def read_input() -> Tuple[int, str]:
     """Вводные данные."""
     fingers = int(input())
     keyboard = [input() for i in range(4)]

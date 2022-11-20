@@ -1,18 +1,27 @@
 # ! change LOCAL to False before submitting !
 # set LOCAL to True for local testing
 
-LOCAL = True
+LOCAL = False
 
 if LOCAL:
-    class Node:  
-        def __init__(self, value, next_item=None):  
-            self.value = value  
+    class Node:
+        def __init__(self, value, next_item=None):
+            self.value = value
             self.next_item = next_item
 
+
 def solution(node, elem):
-    # Your code
-    # ヽ(´▽`)/
-    pass
+    i = 0
+    while True:
+        if node.value == elem:
+            break
+        elif not node.next_item:
+            i = -1
+            break
+        i += 1
+        node = node.next_item
+    return i
+
 
 def test():
     node3 = Node("node3", None)
